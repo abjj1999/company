@@ -6,7 +6,7 @@ const SlideShow = () => {
         <Carousel.Item interval={1500}>
           <img
             className=" slide-show-image image-fluid "
-            src="/images/houston.jpg"
+            src="/images/Houston.jpg"
             alt="First slide"
           />
           <Carousel.Caption>

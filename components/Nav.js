@@ -38,7 +38,7 @@ function Navv() {
               </NavDropdown>
             </Nav.Item>
             <Nav.Item>
-              <Link href="">
+              <Link href="/contact">
                 <a className="nav-link  logo">Contact Us</a>
               </Link>
             </Nav.Item>
