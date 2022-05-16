@@ -1,0 +1,27 @@
+{
+    "name": "company",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@ant-design/icons": "^4.7.0",
+        "animate.css": "^4.1.1",
+        "antd": "^4.20.4",
+        "axios": "^0.26.1",
+        "bootstrap": "^5.1.3",
+        "next": "^12.1.4",
+        "react": "^18.0.0",
+        "react-bootstrap": "^2.4.0",
+        "react-dom": "^18.0.0",
+        "react-toastify": "^9.0.1"
+    }
+}

@@ -1,0 +1,6 @@
+card style = card col-lg-3 col-md-8 m-2 col-sm-12
+
+fonts {
+    font-family: 'Koulen', cursive;
+font-family: 'Roboto', sans-serif;
+}
