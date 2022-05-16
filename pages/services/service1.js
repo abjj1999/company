@@ -3,20 +3,16 @@ import React from "react";
 function service1() {
   return (
     <>
-      <h1 className="border-bottom  display-2 text-center animate__slideInUp animate__animated">
-        Service 1
-      </h1>
-      <div className="service row m-4">
+      <h1 className="border-bottom  display-2 text-center ">Service 1</h1>
+      <div className="service row m-4 animate__slideInUp animate__animated">
         <img
           src="/images/card.jpg"
           alt=""
-          className="image-fluid col-lg-4 col-md-6 col-sm-10 animate__slideInUp animate__animated "
+          className=" col-lg-4 col-md-6 col-sm-10  "
         />
         <div className="serviceText col-lg-7 col-md-6 col-sm-10">
-          <div className="display-4 text-center animate__slideInDown animate__animated m-3">
-            Service title
-          </div>
-          <ul className="service-list animate__slideInRight animate__animated">
+          <div className="display-4 text-center  m-3">Service title</div>
+          <ul className="service-list ">
             <li className=" service-list-item">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
               aperiam sit recusandae debitis, amet facilis rerum provident
