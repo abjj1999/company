@@ -5,7 +5,9 @@ function Navv() {
   return (
     <Navbar bg="light" expand="lg" sticky="top">
       <Container>
-        <Navbar.Brand href="/">CBRE</Navbar.Brand>
+        <Link href="/">
+          <a className="nav-link display-6 text-dark">UBA</a>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
@@ -20,7 +22,7 @@ function Navv() {
               </Link>
             </Nav.Item>
             <Nav.Item>
-              <Link href="/about">
+              <Link href="/projects">
                 <a className="nav-link  logo">projects</a>
               </Link>
             </Nav.Item>

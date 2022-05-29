@@ -1,6 +1,8 @@
 import App from "next/app";
 import Head from "next/head";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SSRProvider } from "react-bootstrap";
 import "animate.css";
@@ -13,6 +15,7 @@ function My_app({ Component, pageProps }) {
         </Head>
         <Nav />
         <Component {...pageProps} />
+        <Footer />
       </>
     </SSRProvider>
   );

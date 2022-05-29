@@ -4,7 +4,7 @@ import Link from "next/link";
 function Services() {
   return (
     <>
-      <div className="services animate__animated animate__fadeInDown">
+      <div className="bg-secondary services animate__animated animate__fadeInDown p-3">
         <h1 className="text-center">Services</h1>
 
         <div className="row d-flex justify-content-center m-5 ">
