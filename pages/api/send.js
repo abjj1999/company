@@ -7,6 +7,10 @@ export default function (req, res) {
       pass: process.env.NEXT_PUBLIC_PASS,
     },
     secure: true,
+    tls: {
+      // do not fail on invalid certs
+      rejectUnauthorized: false,
+    },
   });
   const mailData = {
     from: "abdullahalhilfi21@gmail.com",
