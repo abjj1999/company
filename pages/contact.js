@@ -14,7 +14,20 @@ function contact() {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    console.log(name, phone, comment, email);
+    let data = { name, phone, comment, email, option };
+    fetch(`${[process.env.NEXT_PUBLIC_ROUTE]}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => {
+      console.log("Response received");
+      if (res.status === 200) {
+        console.log("Response succeeded!");
+      }
+    });
     setEmail("");
     setPhone("");
     setComment("");
@@ -139,7 +152,7 @@ function contact() {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13887.96843707749!2d-95.7415424!3d29.516589200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86411de55a2a69f7%3A0xaa8809c27f8c5fae!2sDomino&#39;s%20Pizza!5e0!3m2!1sen!2sus!4v1652679415968!5m2!1sen!2sus"
               width="600"
               height="350"
-              allowfullscreen="false"
+              allowFullScreen="false"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               className="col-lg-6 col-md-6 col-sm-12"
