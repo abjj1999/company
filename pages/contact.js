@@ -12,22 +12,26 @@ function contact() {
   const [comment, setComment] = useState("");
   const [option, setOption] = useState("");
 
-  const handelSubmit = (e) => {
+  const handelSubmit = async (e) => {
     e.preventDefault();
     let data = { name, phone, comment, email, option };
-    fetch(`${[process.env.NEXT_PUBLIC_ROUTE]}`, {
+    await fetch(`${[process.env.NEXT_PUBLIC_ROUTE]}`, {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res) => {
-      console.log("Response received");
-      if (res.status === 200) {
-        console.log("Response succeeded!");
-      }
-    });
+    })
+      .then((res) => {
+        console.log("Response received");
+        if (res.status === 200) {
+          console.log("Response succeeded!");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     setEmail("");
     setPhone("");
     setComment("");
