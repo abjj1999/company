@@ -6,12 +6,15 @@ import {
   YoutubeFilled,
 } from "@ant-design/icons";
 import { toast } from "react-toastify";
+import { Modal } from "antd";
+
 function contact() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [comment, setComment] = useState("");
   const [option, setOption] = useState("");
+  const [ok, setOk] = useState(false);
 
   const handelSubmit = async (e) => {
     e.preventDefault();
@@ -30,6 +33,7 @@ function contact() {
     })
       .then((res) => {
         console.log("Response received");
+        setOk(true);
         if (res.status === 200) {
           console.log("Response succeeded!");
         }
@@ -119,7 +123,20 @@ function contact() {
           </button>
         </div>
       </form>
-
+      <div className="row">
+        <div className="col">
+          <Modal
+            title="thanks"
+            visible={ok}
+            onCancel={() => setOk(false)}
+            footer={null}
+          >
+            <p>
+              Thank you for getting in touch! We appreciate you contacting us
+            </p>
+          </Modal>
+        </div>
+      </div>
       <div className="animate__zoomIn animate__animated address-container">
         <div className="display-4 text-center mb-3">Address</div>
 

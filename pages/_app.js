@@ -3,8 +3,9 @@ import Head from "next/head";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import "antd/dist/antd.css";
 import { SSRProvider } from "react-bootstrap";
 import "animate.css";
 function My_app({ Component, pageProps }) {
