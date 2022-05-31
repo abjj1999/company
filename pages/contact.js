@@ -5,6 +5,7 @@ import {
   TwitterSquareFilled,
   YoutubeFilled,
 } from "@ant-design/icons";
+import { toast } from "react-toastify";
 function contact() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -15,6 +16,10 @@ function contact() {
   const handelSubmit = async (e) => {
     e.preventDefault();
     let data = { name, phone, comment, email, option };
+    setEmail("");
+    setPhone("");
+    setComment("");
+    setName("");
     await fetch(`${[process.env.NEXT_PUBLIC_ROUTE]}`, {
       method: "POST",
       headers: {
@@ -30,12 +35,8 @@ function contact() {
         }
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(error.response.data);
       });
-    setEmail("");
-    setPhone("");
-    setComment("");
-    setName("");
   };
   return (
     <>
