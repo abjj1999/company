@@ -1,0 +1,112 @@
+card style = card col-lg-3 col-md-8 m-2 col-sm-12
+
+fonts {
+    font-family: 'Koulen', cursive;
+font-family: 'Roboto', sans-serif;
+}
+
+oauth2Client.setCredentials({
+    refresh_token:
+      "1//04DzQIp3DNGhfCgYIARAAGAQSNwF-L9IrLGV2Y7SZHCUGLZB6Opn2A2L30NVvEgEPZIE1HRymRTz99maqth1AQQEb4s1lwM5IawY",
+  });
+  const accessToken = await new Promise((resolve, reject) => {
+    oauth2Client.getAccessToken((err, token) => {
+      if (err) {
+        reject();
+      }
+      resolve(token);
+    });
+  });
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      type: "OAuth2",
+      user: "abdullahalhilfi21@gmail.com",
+      accessToken,
+      clientId:
+        "4/0AX4XfWhsnpUDrpTm8lRFHtampgIjXBiiynPUqogteL3wnms0KXdEkIyWqEzhPqyl2acDFg",
+      clientSecret:
+        "ya29.a0ARrdaM9h0ameCS3IvePJdmss484OKTDSfGswrEpTmu8H_omgHuVzuMH2ghuUU6z7DxqMK4kPlsfeJLJELDZs7CaPImkCt1kXaxmXHEPXASlEaIjImAbdmWx_NZeI7OPlkHvKRi3z8fuksE-0pzwpoNYFkJkt",
+      refreshToken:
+        "1//04DzQIp3DNGhfCgYIARAAGAQSNwF-L9IrLGV2Y7SZHCUGLZB6Opn2A2L30NVvEgEPZIE1HRymRTz99maqth1AQQEb4s1lwM5IawY",
+    },
+  });
+
+
+  const mailData = {
+      from: "abdullahalhilfi21@gmail.com",
+      to: "abdullahalhilfi21@gmail.com",
+      subject: `Message From ${req.body.name} || Potential Customer`,
+      text: `
+      A customer has filled out the contact form for ${req.body.option}
+  
+        - Name: ${req.body.name}
+  
+        ----------------------
+        To Contact them back:
+  
+        - Email: ${req.body.email}
+        - Phone: ${req.body.phone}
+        ----------------------
+  
+        Here is their message:
+        ${req.body.comment}
+      `,
+    };
+    transport.sendMail(mailData, function (err, info) {
+      if (err) console.log(err);
+      else console.log(info);
+    });
+
+
+
+// new and existing
+let nodemailer = require("nodemailer");
+  const { google } = require("googleapis");
+  const OAuth2 = google.auth.OAuth2;
+  try {
+    const createTransporter = async () => {
+      const oauth2Client = new OAuth2(
+        "660583575365-ontffebk2e61mni1e5gscbj2fuhl61id.apps.googleusercontent.com",
+        "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",
+        "https://developers.google.com/oauthplayground"
+      );
+
+      oauth2Client.setCredentials({
+        refresh_token:
+          "1//04y6rJrDd6YuZCgYIARAAGAQSNwF-L9Ir8Sha5ZSiNl72IT0hqC6aUySwIAh4ddPtXT4Gv5XSFDD9qRHm87HYCU6usFGCZEu5VI0",
+      });
+      const accessToken = oauth2Client.getAccessToken();
+
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          type: "OAuth2",
+          user: "abdullahalhilfi21@gmail.com",
+          accessToken: accessToken,
+          serviceClient:
+            "660583575365-ontffebk2e61mni1e5gscbj2fuhl61id.apps.googleusercontent.com",
+          privateKey: "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",
+          refreshToken:
+            "1//04y6rJrDd6YuZCgYIARAAGAQSNwF-L9Ir8Sha5ZSiNl72IT0hqC6aUySwIAh4ddPtXT4Gv5XSFDD9qRHm87HYCU6usFGCZEu5VI0",
+          expires: 111234323,
+        },
+        tls: {
+          rejectUnauthorized: false,
+        },
+      });
+      return transporter;
+    };
+    //emailOptions - who sends what to whom
+    const sendEmail = async (emailOptions) => {
+      let emailTransporter = await createTransporter();
+      await emailTransporter.sendMail(emailOptions);
+    };
+    sendEmail({
+      subject: "Test",
+      text: "I am sending an email from nodemailer!",
+      to: "abdullahalhilfi21@gmail.com",
+      from: "abdullahalhilfi21@gmail.com",
+    });
+  } catch (error) {
+    console.error(error);

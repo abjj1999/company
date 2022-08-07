@@ -9,7 +9,7 @@ import {
 function Footer() {
   return (
     <>
-      <div className="bg-secondary mt-5 d-flex justify-content-evenly footer p-3">
+      <div className=" mt-5 d-flex justify-content-evenly footer p-3">
         <h1>UBA</h1>
         <ul className="nav">
           <Link href="/about">
